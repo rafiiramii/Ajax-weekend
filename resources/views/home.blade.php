@@ -76,7 +76,7 @@
             var maxResults = 16;
             var URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet'
             URL += `&key=${API_KEY}&q=${searchTerm}&type=video`;
-            URL += `&maxResults=${16}`;
+            URL += `&maxResults=${maxResults}`;
 
             $.get(URL, function(result){
                 body.removeClass('loading');
