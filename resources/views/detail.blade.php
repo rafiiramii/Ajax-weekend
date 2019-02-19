@@ -37,6 +37,10 @@
         </div>
 
         <h1><?php echo $title; ?></h1>
+
+        <div id="comments">
+
+        </div>
     </div>
 @endsection
 
@@ -48,12 +52,23 @@
         var playButton = $('#playButton');
 
         $(document).ready(function(){
+            var videoId = '{{$videoId}}';
+            getVideoComments(videoId);
+
             @auth
                 saveVideoToWatched()
             @endauth
 
             playButton.click(playVideo);
         });
+
+        function getVideoComments(videoId){
+            var API_KEY = 'AIzaSyAq8HPrbemKw4a23McQJD9ksl2w2lGAcII';
+            var maxResults = 30;
+            var COMMENTS_URL = 'https://www.googleapis.com/youtube/v3/commentThreads?part=snippet'
+            COMMENTS_URL += `&key=${API_KEY}&videoId=${videoId}&type=video`;
+            COMMENTS_URL += `&maxResults=${maxResults}`;
+        }
 
         function saveVideoToWatched(){
             var url = "{{url('/saveToWatched')}}";
