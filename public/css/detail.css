@@ -1,0 +1,72 @@
+#wrapper{
+    width: 900px;
+    padding-top: 120px;
+}
+
+h1{
+    font-size: 1.2em;
+}
+
+#video{
+    padding-top: 2em;
+    position: relative;
+    width: 900px;
+    height: calc(900px * 9 / 16);
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    margin-bottom: 1.5em;
+    background-size: cover;
+    background-position: center;
+}
+
+#video:after,
+#video iframe{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#video:not(.playing) iframe,
+#video.playing:after,
+#video.playing > button{
+    display: none;
+}
+
+#video > button{
+    position: relative;
+    width: 100px;
+    height: 70px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #f66;
+    border: 2px solid currentColor;
+    margin-bottom: 2em;
+    z-index: 5;
+    outline: none;
+    cursor: pointer;
+}
+
+#video > button svg{
+    width: 34px;
+    height: 34px;
+    fill: currentColor;
+    margin-bottom: 0.3em;
+}
+
+#video > button span{
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.6em;
+}
